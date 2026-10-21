@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garung Guni - Enterprise Java & DevOps Capstone Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .gradient-hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); }
+    .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen">
+
+  <!-- Top Navigation Rail -->
+  <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="text-emerald-400 font-extrabold text-lg tracking-wide">NTU SCTP</span>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-300 font-medium text-sm">Capstone Engineering Portfolio</span>
+      </div>
+      <div class="hidden md:flex gap-6 text-xs text-slate-300 font-medium">
+        <a href="#overview" class="hover:text-emerald-400 transition">Overview</a>
+        <a href="#architecture" class="hover:text-emerald-400 transition">Architecture</a>
+        <a href="#endpoints" class="hover:text-emerald-400 transition">API Specs</a>
+        <a href="#pipeline" class="hover:text-emerald-400 transition">CI/CD Pipeline</a>
+        <a href="#agile" class="hover:text-emerald-400 transition">Agile & Resources</a>
+      </div>
+      <div class="flex gap-2">
+        <a href="https://github.com/ntu-se7-grp3" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs font-semibold rounded-md bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fab fa-github text-emerald-400"></i> GitHub Org
+        </a>
+        <a href="https://drive.google.com/drive/folders/1XNdtp7GRn4C4quxGFL1nA5du99KHxT8E" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs font-semibold rounded-md bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 transition flex items-center gap-1.5">
+          <i class="fab fa-google-drive text-emerald-400"></i> Google Drive
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="overview" class="gradient-hero py-16 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
+        <div class="max-w-3xl space-y-5">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-1 text-xs font-semibold rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"><i class="fas fa-check-circle mr-1"></i>Production Build Passing</span>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded bg-blue-500/10 text-blue-400 border border-blue-500/20"><i class="fas fa-shield-halved mr-1"></i>Snyk Security Clean</span>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded bg-purple-500/10 text-purple-400 border border-purple-500/20"><i class="fas fa-vial mr-1"></i>JUnit Tests Passing</span>
+          </div>
+          <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Garung Guni App: Marketplace & Logistics Microservice API
+          </h1>
+          <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+            An end-to-end distributed system created to solve urban recycling coordination. Features a Spring Boot REST API backed by PostgreSQL, automated CircleCI pipelines, Snyk vulnerability scans, and containerized deployment on Heroku.
+          </p>
+          
+          <!-- Primary CTA Link Buttons -->
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a href="https://github.com/ntu-se7-grp3" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 text-xs font-bold rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition flex items-center gap-2">
+              <i class="fab fa-github text-base"></i> View GitHub Repositories (ntu-se7-grp3)
+            </a>
+            <a href="https://drive.google.com/drive/folders/1XNdtp7GRn4C4quxGFL1nA5du99KHxT8E" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 text-xs font-bold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-2">
+              <i class="fab fa-google-drive text-amber-400 text-base"></i> Access Project Google Drive
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-7xl mx-auto px-6 py-12 space-y-16">
+
+    <!-- STAR Framework Overview -->
+    <section class="grid md:grid-cols-4 gap-6">
+      <div class="glass-card p-5 rounded-xl space-y-2">
+        <div class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Situation</div>
+        <h3 class="text-sm font-bold text-white">Logistics Fragmentation</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">Doorstep recycling faces low pickup efficiency and scheduling conflicts for residents and collectors.</p>
+      </div>
+      <div class="glass-card p-5 rounded-xl space-y-2">
+        <div class="text-xs font-bold text-blue-400 uppercase tracking-wider">Task</div>
+        <h3 class="text-sm font-bold text-white">Automated System Architecture</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">Design a scalable backend REST API with persistent storage, automated validation, and secure user management.</p>
+      </div>
+      <div class="glass-card p-5 rounded-xl space-y-2">
+        <div class="text-xs font-bold text-purple-400 uppercase tracking-wider">Action</div>
+        <h3 class="text-sm font-bold text-white">Spring Boot & CI/CD Pipeline</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">Built Spring Boot services using JPA, configured Docker containers, and built CircleCI workflows for testing & deployment.</p>
+      </div>
+      <div class="glass-card p-5 rounded-xl space-y-2">
+        <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Result</div>
+        <h3 class="text-sm font-bold text-white">Zero-Downtime Deployment</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">Achieved seamless feature releases with automated quality gates stopping builds on failing unit tests or security risks.</p>
+      </div>
+    </section>
+
+    <!-- Architecture & Draw.io Visual Showcase -->
+    <section id="architecture" class="space-y-6">
+      <div>
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+          <i class="fas fa-sitemap text-emerald-400"></i> System Architecture & Workflow
+        </h2>
+        <p class="text-xs text-slate-400 mt-1">End-to-end interaction diagram modeled via Draw.io and stored on Google Drive</p>
+      </div>
+      <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col md:flex-row gap-8 items-center">
+        <div class="w-full md:w-1/2 space-y-3">
+          <h3 class="text-base font-bold text-white">Microservice Workflow & Storage Layer</h3>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> <strong>Spring Data JPA:</strong> Relationships between Users, Schedules, and Item Catalogues.</li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> <strong>Global Exception Handling:</strong> Intercepts validation errors and sends standardized JSON error responses.</li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> <strong>SLF4J / Logback:</strong> Structured file and console logging for monitoring system events.</li>
+          </ul>
+        </div>
+        <div class="w-full md:w-1/2 bg-slate-900 p-6 rounded-lg border border-slate-800 text-center space-y-3">
+          <i class="fas fa-project-diagram text-5xl text-emerald-400"></i>
+          <p class="text-xs font-semibold text-slate-200">Draw.io Architecture & ERD Diagrams</p>
+          <a href="https://drive.google.com/drive/folders/1XNdtp7GRn4C4quxGFL1nA5du99KHxT8E" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:underline font-mono">
+            <i class="fab fa-google-drive"></i> Open Google Drive Folder <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive API Endpoint Inspector -->
+    <section id="endpoints" class="space-y-6">
+      <div>
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+          <i class="fas fa-code text-blue-400"></i> Interactive REST API Specification
+        </h2>
+        <p class="text-xs text-slate-400 mt-1">Click an endpoint to inspect payload structures and error handling rules</p>
+      </div>
+
+      <div class="space-y-3">
+        <!-- Endpoint Item 1 -->
+        <div class="bg-slate-900 rounded-lg border border-slate-800 overflow-hidden">
+          <button onclick="toggleAccordion('ep1')" class="w-full px-5 py-3.5 flex justify-between items-center hover:bg-slate-800/50 transition text-left">
+            <div class="flex items-center gap-3">
+              <span class="px-2 py-0.5 text-xs font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded">POST</span>
+              <span class="font-mono text-xs text-slate-200">/api/v1/users/register</span>
+            </div>
+            <span class="text-xs text-slate-400">User Account Registration</span>
+          </button>
+          <div id="ep1" class="hidden px-5 py-4 bg-slate-950 border-t border-slate-800/80 space-y-3 text-xs">
+            <div>
+              <span class="font-semibold text-slate-300">Request Body (JSON):</span>
+              <pre class="bg-slate-900 p-3 rounded mt-1 font-mono text-emerald-300 border border-slate-800">
+{
+  "username": "yongjian",
+  "email": "yj@example.com",
+  "mobileNo": "+6591234567",
+  "postalCode": "680512"
+}</pre>
+            </div>
+            <div>
+              <span class="font-semibold text-slate-300">Response (201 Created):</span>
+              <pre class="bg-slate-900 p-3 rounded mt-1 font-mono text-slate-300 border border-slate-800">
+{ "id": 101, "status": "SUCCESS", "message": "User registered successfully" }</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Endpoint Item 2 -->
+        <div class="bg-slate-900 rounded-lg border border-slate-800 overflow-hidden">
+          <button onclick="toggleAccordion('ep2')" class="w-full px-5 py-3.5 flex justify-between items-center hover:bg-slate-800/50 transition text-left">
+            <div class="flex items-center gap-3">
+              <span class="px-2 py-0.5 text-xs font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded">POST</span>
+              <span class="font-mono text-xs text-slate-200">/api/v1/schedules/booking</span>
+            </div>
+            <span class="text-xs text-slate-400">Schedule Recyclable Pickup</span>
+          </button>
+          <div id="ep2" class="hidden px-5 py-4 bg-slate-950 border-t border-slate-800/80 space-y-3 text-xs">
+            <div>
+              <span class="font-semibold text-slate-300">Request Body (JSON):</span>
+              <pre class="bg-slate-900 p-3 rounded mt-1 font-mono text-emerald-300 border border-slate-800">
+{
+  "userId": 101,
+  "collectionDate": "2026-11-05",
+  "itemCategories": ["Paper", "Metals"],
+  "freeDonation": false
+}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CI/CD & Agile Workflow -->
+    <section id="pipeline" class="grid md:grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <i class="fas fa-server text-purple-400"></i> CI/CD Pipeline Integration
+        </h2>
+        <div class="glass-card p-5 rounded-xl space-y-3 text-xs">
+          <p class="text-slate-300">Automated integration and delivery managed through CircleCI & GitHub:</p>
+          <ul class="space-y-2 text-slate-300">
+            <li><strong class="text-white">Git Branching Strategy:</strong> Managed under <a href="https://github.com/ntu-se7-grp3" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-mono">ntu-se7-grp3</a> across <code class="text-emerald-300">develop</code> and <code class="text-emerald-300">release</code> branches.</li>
+            <li><strong class="text-white">Parallel Testing & Security Scans:</strong> Maven unit tests run concurrently alongside Snyk container vulnerability checks.</li>
+            <li><strong class="text-white">Production Deployment:</strong> Tested Docker images deploy to Heroku with linked Heroku Postgres services.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="agile" class="space-y-4">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <i class="fas fa-users-gear text-amber-400"></i> Agile Processes & Project Docs
+        </h2>
+        <div class="glass-card p-5 rounded-xl space-y-3 text-xs">
+          <p class="text-slate-300">Project documentation and standup tracking:</p>
+          <ul class="space-y-2 text-slate-300">
+            <li><strong class="text-white">Alternate-Day Standups:</strong> Synchronized feature development, discussed API contracts, and resolved implementation blockers.</li>
+            <li><strong class="text-white">Shared Project Assets:</strong> All design documents, Draw.io diagrams, and briefs are stored in the <a href="https://drive.google.com/drive/folders/1XNdtp7GRn4C4quxGFL1nA5du99KHxT8E" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Google Drive Folder</a>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function toggleAccordion(id) {
+      const el = document.getElementById(id);
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+      } else {
+        el.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
