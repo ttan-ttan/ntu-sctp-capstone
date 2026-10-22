@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Garung Guni — Enterprise Microservices & CI/CD Platform</title>
+  <title>Garung Guni — Full-Stack & DevOps Capstone Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script>
@@ -11,7 +11,7 @@
       theme: {
         extend: {
           colors: {
-            brand: { 50: '#ecfdf5', 500: '#10b981', 600: '#059669', 900: '#064e3b' }
+            brand: { 50: '#ecfdf5', 400: '#34d399', 500: '#10b981', 600: '#059669', 950: '#022c22' }
           }
         }
       }
@@ -19,379 +19,295 @@
   </script>
   <style>
     .bg-grid { background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 24px 24px; }
-    .glass-panel { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-    .glow-emerald { box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.25); }
+    .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .mobile-mockup { width: 300px; height: 600px; border: 10px solid #1e293b; border-radius: 36px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen bg-grid selection:bg-brand-500 selection:text-slate-950">
 
-  <!-- Top Sticky Navigation Bar -->
-  <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="h-8 w-8 rounded-lg bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-500 font-extrabold text-sm">
+        <div class="h-8 w-8 rounded-lg bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-500 font-extrabold text-xs">
           NTU
         </div>
-        <div class="h-4 w-[1px] bg-slate-800"></div>
-        <span class="font-bold text-sm tracking-wide text-slate-200">Garung Guni <span class="text-xs font-normal text-slate-400">Capstone</span></span>
+        <span class="font-bold text-sm text-slate-200">Garung Guni <span class="text-xs text-slate-400 font-normal">4-Module Capstone</span></span>
       </div>
 
       <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-slate-300">
-        <a href="#overview" class="hover:text-brand-500 transition">Overview</a>
-        <a href="#architecture" class="hover:text-brand-500 transition">System Architecture</a>
-        <a href="#api-tester" class="hover:text-brand-500 transition">API Playground</a>
-        <a href="#pipeline" class="hover:text-brand-500 transition">CI/CD Pipeline</a>
-        <a href="#agile" class="hover:text-brand-500 transition">Agile Process</a>
+        <a href="#modules" class="hover:text-brand-400 transition">4-Module Roadmap</a>
+        <a href="#mobile-demo" class="hover:text-brand-400 transition">Mobile App UI</a>
+        <a href="#architecture" class="hover:text-brand-400 transition">Backend Architecture</a>
+        <a href="#pipeline" class="hover:text-brand-400 transition">CI/CD Pipeline</a>
       </nav>
 
       <div class="flex items-center gap-2">
         <a href="https://github.com/ntu-se7-grp3" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 transition flex items-center gap-2">
-          <i class="fab fa-github text-slate-300"></i> <span class="hidden sm:inline">GitHub</span>
+          <i class="fab fa-github text-emerald-400"></i> GitHub
         </a>
-        <a href="https://drive.google.com/drive/folders/1XNdtp7GRn4C4quxGFL1nA5du99KHxT8E" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-brand-500/10 hover:bg-brand-500/20 text-brand-500 border border-brand-500/30 transition flex items-center gap-2">
-          <i class="fab fa-google-drive text-amber-400"></i> <span class="hidden sm:inline">Drive</span>
+        <a href="https://drive.google.com/drive/folders/1XNdtp7GRn4C4quxGFL1nA5du99KHxT8E" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 border border-brand-500/30 transition flex items-center gap-2">
+          <i class="fab fa-google-drive text-amber-400"></i> Drive
         </a>
       </div>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-12 space-y-20">
 
-    <!-- Hero Section -->
-    <section id="overview" class="relative pt-6 pb-10 space-y-8">
-      <div class="flex flex-wrap items-center gap-3">
-        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-500 border border-brand-500/20 flex items-center gap-1.5">
-          <span class="h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span> Production Pipeline Operational
-        </span>
-        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
-          <i class="fab fa-docker mr-1"></i> Docker Containerized
-        </span>
-        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">
-          <i class="fas fa-shield-halved mr-1"></i> Snyk Security Verified
-        </span>
+    <!-- Hero Header -->
+    <section class="space-y-4 max-w-4xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20">
+        <i class="fas fa-graduation-cap"></i> NTU Software Engineering Capstone Showcase
       </div>
-
-      <div class="space-y-4 max-w-4xl">
-        <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
-          Garung Guni: Distributed Recycling & Logistics Platform
-        </h1>
-        <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
-          An end-to-end full-stack marketplace microservice engineered to streamline doorstep recycling logistics in Singapore. Built with Java Spring Boot, PostgreSQL, Docker, CircleCI automated quality gates, and Heroku deployment.
-        </p>
-      </div>
-
-      <!-- Quick Metrics Counters -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-        <div class="glass-panel p-4 rounded-xl border border-slate-800">
-          <div class="text-xs text-slate-400 font-medium">Core Stack</div>
-          <div class="text-lg font-bold text-white mt-1">Spring Boot + Postgres</div>
-        </div>
-        <div class="glass-panel p-4 rounded-xl border border-slate-800">
-          <div class="text-xs text-slate-400 font-medium">Build Automation</div>
-          <div class="text-lg font-bold text-brand-500 mt-1">CircleCI + Docker</div>
-        </div>
-        <div class="glass-panel p-4 rounded-xl border border-slate-800">
-          <div class="text-xs text-slate-400 font-medium">Unit Test Suite</div>
-          <div class="text-lg font-bold text-blue-400 mt-1">JUnit 5 (Service Layer)</div>
-        </div>
-        <div class="glass-panel p-4 rounded-xl border border-slate-800">
-          <div class="text-xs text-slate-400 font-medium">Security Auditing</div>
-          <div class="text-lg font-bold text-purple-400 mt-1">Snyk Vulnerability Scan</div>
-        </div>
-      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+        Garung Guni: End-to-End Full-Stack & DevOps Platform
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        Demonstrating the full 4-module software engineering progression: from initial Draw.io planning and React Mobile Frontend, to Spring Boot REST APIs, PostgreSQL persistence, and automated CircleCI/Snyk pipelines.
+      </p>
     </section>
 
-    <!-- Interactive System Architecture Explorer -->
-    <section id="architecture" class="space-y-6">
-      <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-2 border-b border-slate-800 pb-4">
-        <div>
-          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-            <i class="fas fa-sitemap text-brand-500"></i> Architecture & Component Topology
-          </h2>
-          <p class="text-xs text-slate-400 mt-1">Click components to view technical implementation details</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1XNdtp7GRn4C4quxGFL1nA5du99KHxT8E" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-500 hover:underline flex items-center gap-1 font-mono">
-          <i class="fab fa-google-drive"></i> Open Draw.io Source Folder <i class="fas fa-external-link-alt text-[10px]"></i>
-        </a>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Card 1 -->
-        <div onclick="selectArch('api')" id="arch-card-api" class="glass-panel p-6 rounded-xl border-2 border-brand-500/50 cursor-pointer transition glow-emerald">
-          <div class="flex justify-between items-start mb-4">
-            <div class="p-3 rounded-lg bg-brand-500/10 text-brand-500 text-xl"><i class="fas fa-server"></i></div>
-            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">REST Layer</span>
-          </div>
-          <h3 class="font-bold text-white text-base">Spring Boot REST Controller</h3>
-          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-            Handles user authentication, collection schedules, and item catalog endpoints with global error handling.
-          </p>
-        </div>
-
-        <!-- Card 2 -->
-        <div onclick="selectArch('db')" id="arch-card-db" class="glass-panel p-6 rounded-xl border border-slate-800 cursor-pointer hover:border-slate-700 transition">
-          <div class="flex justify-between items-start mb-4">
-            <div class="p-3 rounded-lg bg-blue-500/10 text-blue-400 text-xl"><i class="fas fa-database"></i></div>
-            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Persistence</span>
-          </div>
-          <h3 class="font-bold text-white text-base">PostgreSQL & Spring Data JPA</h3>
-          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-            ORM entities mapping One-To-Many and Many-To-One relationships for users, bookings, and cash rates.
-          </p>
-        </div>
-
-        <!-- Card 3 -->
-        <div onclick="selectArch('devops')" id="arch-card-devops" class="glass-panel p-6 rounded-xl border border-slate-800 cursor-pointer hover:border-slate-700 transition">
-          <div class="flex justify-between items-start mb-4">
-            <div class="p-3 rounded-lg bg-purple-500/10 text-purple-400 text-xl"><i class="fas fa-cloud-arrow-up"></i></div>
-            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Deployment</span>
-          </div>
-          <h3 class="font-bold text-white text-base">Docker & Heroku Hosting</h3>
-          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-            Containerized runtime environment backed by Heroku Postgres add-on and CircleCI automated workflows.
-          </p>
-        </div>
-      </div>
-
-      <!-- Detail Box -->
-      <div id="arch-detail-box" class="glass-panel p-6 rounded-xl border border-slate-800 bg-slate-900/90 text-xs space-y-3 font-mono">
-        <div class="text-brand-500 font-bold uppercase tracking-wider">// Selected Component Details: REST API Layer</div>
-        <p class="text-slate-300 font-sans leading-relaxed">
-          The Spring Boot REST controller uses Dependency Injection to decouple business logic from API contracts. Integrated SLF4J/Logback logs request telemetry and captures runtime exceptions with `@ControllerAdvice` global handlers.
-        </p>
-      </div>
-    </section>
-
-    <!-- Interactive Live API Playground -->
-    <section id="api-tester" class="space-y-6">
+    <!-- Section 1: The 4-Module Capstone Roadmap -->
+    <section id="modules" class="space-y-6">
       <div class="border-b border-slate-800 pb-4">
         <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-          <i class="fas fa-terminal text-blue-400"></i> Interactive API Playground
+          <i class="fas fa-layer-group text-brand-400"></i> 4-Module Technical Progression
         </h2>
-        <p class="text-xs text-slate-400 mt-1">Select an endpoint below to simulate live API requests and response bodies</p>
+        <p class="text-xs text-slate-400 mt-1">Overview of skills applied across each phase of the program</p>
       </div>
 
-      <div class="grid lg:grid-cols-12 gap-6">
-        <!-- Endpoint Selection Panel -->
-        <div class="lg:col-span-5 space-y-3">
-          <button onclick="loadApiSample('user-register')" class="w-full text-left p-4 rounded-xl glass-panel border border-brand-500/40 hover:border-brand-500 transition flex justify-between items-center group">
-            <div>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-500/20 text-brand-500 font-bold">POST</span>
-              <span class="text-xs font-mono text-white ml-2">/api/v1/users/register</span>
-              <div class="text-[11px] text-slate-400 mt-1 font-sans">Create a new user account</div>
-            </div>
-            <i class="fas fa-chevron-right text-slate-500 group-hover:text-brand-500 transition"></i>
-          </button>
-
-          <button onclick="loadApiSample('schedule-pickup')" class="w-full text-left p-4 rounded-xl glass-panel border border-slate-800 hover:border-slate-700 transition flex justify-between items-center group">
-            <div>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-500/20 text-brand-500 font-bold">POST</span>
-              <span class="text-xs font-mono text-white ml-2">/api/v1/schedules/booking</span>
-              <div class="text-[11px] text-slate-400 mt-1 font-sans">Book a doorstep recycling collection</div>
-            </div>
-            <i class="fas fa-chevron-right text-slate-500 group-hover:text-brand-500 transition"></i>
-          </button>
-
-          <button onclick="loadApiSample('catalogue-get')" class="w-full text-left p-4 rounded-xl glass-panel border border-slate-800 hover:border-slate-700 transition flex justify-between items-center group">
-            <div>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-bold">GET</span>
-              <span class="text-xs font-mono text-white ml-2">/api/v1/items/catalogue</span>
-              <div class="text-[11px] text-slate-400 mt-1 font-sans">Fetch recyclable item prices & rules</div>
-            </div>
-            <i class="fas fa-chevron-right text-slate-500 group-hover:text-blue-400 transition"></i>
-          </button>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Module 1 -->
+        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-3">
+          <div class="text-xs font-mono font-bold text-amber-400">MODULE 01</div>
+          <h3 class="font-bold text-white text-sm">System Planning & Agile</h3>
+          <ul class="text-xs text-slate-300 space-y-1.5 leading-relaxed">
+            <li>• Problem statements & User Stories</li>
+            <li>• Draw.io System ERD & Flows</li>
+            <li>• Alternate-Day Scrum Standups</li>
+          </ul>
         </div>
 
-        <!-- Terminal Console Panel -->
-        <div class="lg:col-span-7 glass-panel rounded-xl border border-slate-800 overflow-hidden flex flex-col h-full min-h-[380px]">
-          <div class="bg-slate-900/90 px-4 py-2.5 border-b border-slate-800 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-              <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-amber-500/80"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-brand-500/80"></span>
-              <span class="text-xs font-mono text-slate-400 ml-2" id="console-endpoint-title">POST /api/v1/users/register</span>
-            </div>
-            <button onclick="runSimulatedApi()" class="px-3 py-1 text-[11px] font-mono font-bold rounded bg-brand-500 hover:bg-brand-400 text-slate-950 transition flex items-center gap-1">
-              <i class="fas fa-play text-[9px]"></i> Execute
-            </button>
-          </div>
+        <!-- Module 2 -->
+        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-3">
+          <div class="text-xs font-mono font-bold text-blue-400">MODULE 02</div>
+          <h3 class="font-bold text-white text-sm">React Mobile Frontend</h3>
+          <ul class="text-xs text-slate-300 space-y-1.5 leading-relaxed">
+            <li>• React / React Native UI & State</li>
+            <li>• AXIOS API Service Integration</li>
+            <li>• Leaflet Station Map Filters</li>
+          </ul>
+        </div>
 
-          <div class="p-4 font-mono text-xs space-y-4 flex-1 bg-slate-950 text-slate-300 overflow-x-auto">
-            <div>
-              <div class="text-slate-500 uppercase text-[10px] font-bold mb-1">// Request Body</div>
-              <pre id="console-req-body" class="text-emerald-400">
-{
-  "username": "tan_yj",
-  "email": "yj@example.com",
-  "mobileNo": "+6591234567",
-  "postalCode": "680512"
-}</pre>
-            </div>
+        <!-- Module 3 -->
+        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-3">
+          <div class="text-xs font-mono font-bold text-brand-400">MODULE 03</div>
+          <h3 class="font-bold text-white text-sm">Spring Boot REST API</h3>
+          <ul class="text-xs text-slate-300 space-y-1.5 leading-relaxed">
+            <li>• Java Spring Boot Microservices</li>
+            <li>• PostgreSQL JPA Relationships</li>
+            <li>• SLF4J Logging & Exception Advice</li>
+          </ul>
+        </div>
 
-            <div class="border-t border-slate-900 pt-3">
-              <div class="flex justify-between items-center text-[10px] font-bold uppercase text-slate-500 mb-1">
-                <span>// Response Body</span>
-                <span id="console-status-code" class="text-brand-500">201 CREATED</span>
+        <!-- Module 4 -->
+        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-3">
+          <div class="text-xs font-mono font-bold text-purple-400">MODULE 04</div>
+          <h3 class="font-bold text-white text-sm">DevOps & Security</h3>
+          <ul class="text-xs text-slate-300 space-y-1.5 leading-relaxed">
+            <li>• CircleCI Automated Pipelines</li>
+            <li>• Snyk Container Vulnerability Scan</li>
+            <li>• Docker & Heroku Cloud Hosting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Mobile App UI Demo (Module 2 Focus) -->
+    <section id="mobile-demo" class="space-y-6">
+      <div class="border-b border-slate-800 pb-4">
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+          <i class="fas fa-mobile-screen-button text-blue-400"></i> Interactive Frontend Demo (React Mobile Client)
+        </h2>
+        <p class="text-xs text-slate-400 mt-1">Click mobile navigation buttons below to test live screen views and interactions</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <!-- Interactive Smartphone Frame -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="mobile-mockup bg-slate-900 overflow-hidden flex flex-col relative text-slate-100">
+            <!-- Mobile Header Notch -->
+            <div class="bg-slate-950 px-6 py-3 flex justify-between items-center border-b border-slate-800">
+              <span class="text-[10px] font-bold text-slate-400">Garung Guni App</span>
+              <div class="flex gap-1.5">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                <span class="h-1.5 w-1.5 rounded-full bg-slate-600"></span>
               </div>
-              <pre id="console-res-body" class="text-slate-200">
-{
-  "status": 201,
-  "data": {
-    "userId": 101,
-    "username": "tan_yj",
-    "createdTimestamp": "2026-10-24T10:15:30Z"
-  }
-}</pre>
             </div>
+
+            <!-- Mobile Viewport Canvas -->
+            <div id="mobile-viewport" class="flex-1 p-4 overflow-y-auto space-y-4 text-xs">
+              <!-- View 1: Booking Request Screen (Default) -->
+              <div id="view-booking" class="space-y-3">
+                <div class="bg-slate-800 p-3 rounded-lg space-y-2">
+                  <div class="font-bold text-white text-xs">Doorstep Collection Request</div>
+                  <p class="text-[10px] text-slate-400">Schedule a collector to visit your unit</p>
+                </div>
+                
+                <div class="space-y-1.5">
+                  <label class="text-[10px] text-slate-400 font-semibold">Select Collection Date</label>
+                  <input type="date" value="2026-11-05" class="w-full bg-slate-950 border border-slate-800 rounded p-2 text-xs text-slate-200">
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="text-[10px] text-slate-400 font-semibold">Item Categories</label>
+                  <div class="grid grid-cols-2 gap-2 text-[10px]">
+                    <div class="bg-emerald-500/20 border border-emerald-500/40 p-2 rounded text-emerald-300 font-bold flex justify-between">
+                      <span>Paper / Cardboard</span> <i class="fas fa-check"></i>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-800 p-2 rounded text-slate-400">
+                      Metals / Cans
+                    </div>
+                  </div>
+                </div>
+
+                <button onclick="simulateMobileSubmit()" class="w-full py-2.5 bg-brand-500 font-bold text-slate-950 rounded-lg text-xs hover:bg-brand-400 transition mt-2">
+                  Submit Pickup Request
+                </button>
+              </div>
+
+              <!-- View 2: Items & Cash Rates Screen -->
+              <div id="view-catalogue" class="hidden space-y-3">
+                <div class="font-bold text-white text-xs">Recyclables Catalogue & Rates</div>
+                <div class="space-y-2">
+                  <div class="p-2.5 bg-slate-800 rounded flex justify-between items-center">
+                    <div>
+                      <div class="font-bold text-white">Old Newspapers & Books</div>
+                      <div class="text-[9px] text-slate-400">Clean & bound in stacks</div>
+                    </div>
+                    <span class="text-brand-400 font-mono font-bold">$0.25 / kg</span>
+                  </div>
+                  <div class="p-2.5 bg-slate-800 rounded flex justify-between items-center">
+                    <div>
+                      <div class="font-bold text-white">Aluminium Cans</div>
+                      <div class="text-[9px] text-slate-400">Rinsed & crushed</div>
+                    </div>
+                    <span class="text-brand-400 font-mono font-bold">$0.85 / kg</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- View 3: Activity Tracker -->
+              <div id="view-activity" class="hidden space-y-3">
+                <div class="font-bold text-white text-xs">Your Pickup Requests</div>
+                <div class="p-3 bg-slate-800 rounded-lg border border-emerald-500/30 space-y-1">
+                  <div class="flex justify-between text-[10px]">
+                    <span class="font-bold text-emerald-400">CONFIRMED</span>
+                    <span class="text-slate-400">ID: #BK-9842</span>
+                  </div>
+                  <div class="text-slate-200 font-bold">5 Nov 2026 (10:00 AM)</div>
+                  <div class="text-[10px] text-slate-400">Status: Collector assigned</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Bottom Tab Navigation -->
+            <div class="bg-slate-950 border-t border-slate-800 p-2 grid grid-cols-3 text-center text-[10px]">
+              <button onclick="switchMobileView('booking')" class="text-brand-400 font-bold flex flex-col items-center">
+                <i class="fas fa-calendar-plus text-xs"></i> Schedule
+              </button>
+              <button onclick="switchMobileView('catalogue')" class="text-slate-400 hover:text-white flex flex-col items-center">
+                <i class="fas fa-list text-xs"></i> Rates
+              </button>
+              <button onclick="switchMobileView('activity')" class="text-slate-400 hover:text-white flex flex-col items-center">
+                <i class="fas fa-clock-rotate-left text-xs"></i> Activity
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Explanation Panel -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="glass-panel p-6 rounded-xl border border-slate-800 space-y-3">
+            <div class="text-xs font-mono text-blue-400 font-bold">// React Client Features & Architecture</div>
+            <h3 class="text-lg font-bold text-white">Frontend Technical Implementation</h3>
+            <ul class="text-xs text-slate-300 space-y-2 leading-relaxed">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-code text-brand-400 mt-0.5"></i>
+                <span><strong>AXIOS & REST Integration:</strong> Fetches pricing catalogues and submits collection payloads directly to Spring Boot backend endpoints[cite: 2, 21].</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-code text-brand-400 mt-0.5"></i>
+                <span><strong>React State & Hooks:</strong> Uses <code class="text-brand-300">useState</code> and <code class="text-brand-300">useContext</code> to track user pickup schedules, cart selections, and auth sessions[cite: 21].</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-code text-brand-400 mt-0.5"></i>
+                <span><strong>Mobile Responsive UI:</strong> Custom CSS layouts built to render cleanly across both mobile smartphones and desktop interview displays[cite: 21].</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CI/CD Pipeline & Agile Process -->
-    <section id="pipeline" class="space-y-6">
+    <!-- Section 3: End-to-End Execution Flow (Frontend -> API -> DB -> DevOps) -->
+    <section id="architecture" class="space-y-6">
       <div class="border-b border-slate-800 pb-4">
         <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-          <i class="fas fa-code-branch text-purple-400"></i> CI/CD Pipeline & Quality Assurance
+          <i class="fas fa-diagram-project text-brand-400"></i> Full Stack Request Execution Lifecycle
         </h2>
-        <p class="text-xs text-slate-400 mt-1">Git Flow branching triggers automated CircleCI test suites and security scans</p>
+        <p class="text-xs text-slate-400 mt-1">How a single user tap on the mobile app executes across all 4 system layers</p>
       </div>
 
       <div class="grid md:grid-cols-4 gap-4 text-xs">
-        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-2">
-          <div class="text-brand-500 font-bold font-mono">1. Git Push</div>
-          <div class="font-bold text-white text-sm">Branch Strategy</div>
-          <p class="text-slate-400 leading-relaxed">
-            Commits pushed to <code class="text-emerald-300">develop</code> branch trigger CI flows; <code class="text-emerald-300">release</code> triggers full CI/CD deployment workflows.
-          </p>
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="text-blue-400 font-mono font-bold">STEP 1: REACT APP</div>
+          <div class="font-bold text-white">AXIOS Request Payload</div>
+          <p class="text-slate-400">React client posts JSON booking data to Spring Boot backend[cite: 2, 21].</p>
         </div>
 
-        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-2">
-          <div class="text-blue-400 font-bold font-mono">2. CircleCI Runner</div>
-          <div class="font-bold text-white text-sm">Automated Testing</div>
-          <p class="text-slate-400 leading-relaxed">
-            Executes minimum 3 JUnit service layer unit tests. Pipeline halts immediately if any test fails.
-          </p>
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="text-brand-400 font-mono font-bold">STEP 2: SPRING BOOT</div>
+          <div class="font-bold text-white">REST Controller & Validation</div>
+          <p class="text-slate-400">Validates inputs and logs telemetry using SLF4J / Logback[cite: 2, 3].</p>
         </div>
 
-        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-2">
-          <div class="text-purple-400 font-bold font-mono">3. Snyk Scanning</div>
-          <div class="font-bold text-white text-sm">Security Audit</div>
-          <p class="text-slate-400 leading-relaxed">
-            Runs parallel vulnerability scans on container images and Maven dependencies before build approval.
-          </p>
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="text-amber-400 font-mono font-bold">STEP 3: POSTGRESQL</div>
+          <div class="font-bold text-white">JPA Entity Persistence</div>
+          <p class="text-slate-400">Persists records into PostgreSQL via `@ManyToOne` user relationships[cite: 2].</p>
         </div>
 
-        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-2">
-          <div class="text-amber-400 font-bold font-mono">4. Docker Deployment</div>
-          <div class="font-bold text-white text-sm">Heroku Hosting</div>
-          <p class="text-slate-400 leading-relaxed">
-            Builds Docker image and deploys to Heroku connected with provisioning Heroku Postgres DB.
-          </p>
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="text-purple-400 font-mono font-bold">STEP 4: DEVOPS</div>
+          <div class="font-bold text-white">CircleCI & Docker</div>
+          <p class="text-slate-400">CircleCI runs JUnit tests, Snyk scans, and deploys Docker images to Heroku[cite: 41, 43, 44, 46].</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Agile Collaboration Section -->
-    <section id="agile" class="glass-panel p-8 rounded-2xl border border-slate-800 space-y-4">
-      <h2 class="text-xl font-bold text-white flex items-center gap-2">
-        <i class="fas fa-users-gear text-amber-400"></i> Agile Delivery & Shared Resources
-      </h2>
-      <p class="text-xs text-slate-300 leading-relaxed max-w-3xl">
-        Collaborated across alternate-day Scrum standups, using VS Code and GitHub Projects for sprint tracking. Architectural diagrams, user stories, and project deliverables are accessible in the team's public Google Drive folder and GitHub Organization repository.
-      </p>
-      <div class="flex flex-wrap gap-4 pt-2">
-        <a href="https://github.com/ntu-se7-grp3" target="_blank" rel="noopener noreferrer" class="px-4 py-2 text-xs font-bold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 transition flex items-center gap-2">
-          <i class="fab fa-github text-base text-brand-500"></i> ntu-se7-grp3 Repository
-        </a>
-        <a href="https://drive.google.com/drive/folders/1XNdtp7GRn4C4quxGFL1nA5du99KHxT8E" target="_blank" rel="noopener noreferrer" class="px-4 py-2 text-xs font-bold rounded-lg bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 border border-brand-500/30 transition flex items-center gap-2">
-          <i class="fab fa-google-drive text-base text-amber-400"></i> Google Drive Folder
-        </a>
       </div>
     </section>
 
   </main>
 
-  <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
-    <div class="max-w-7xl mx-auto px-4">
-      Garung Guni Microservice Portfolio — NTU SCTP Software Engineering Capstone
-    </div>
+  <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
+    Garung Guni Capstone Portfolio — Nanyang Technological University SCTP
   </footer>
 
   <!-- Interactive JavaScript Logic -->
   <script>
-    // Architecture Explorer Switching Logic
-    function selectArch(type) {
-      const cards = ['api', 'db', 'devops'];
-      cards.forEach(c => {
-        const el = document.getElementById(`arch-card-${c}`);
-        el.className = 'glass-panel p-6 rounded-xl border border-slate-800 cursor-pointer hover:border-slate-700 transition';
-      });
+    function switchMobileView(view) {
+      document.getElementById('view-booking').classList.add('hidden');
+      document.getElementById('view-catalogue').classList.add('hidden');
+      document.getElementById('view-activity').classList.add('hidden');
 
-      const activeCard = document.getElementById(`arch-card-${type}`);
-      activeCard.className = 'glass-panel p-6 rounded-xl border-2 border-brand-500/50 cursor-pointer transition glow-emerald';
-
-      const detailBox = document.getElementById('arch-detail-box');
-      if (type === 'api') {
-        detailBox.innerHTML = `
-          <div class="text-brand-500 font-bold uppercase tracking-wider">// Selected Component Details: REST API Layer</div>
-          <p class="text-slate-300 font-sans leading-relaxed">
-            The Spring Boot REST controller uses Dependency Injection to decouple business logic from API contracts. Integrated SLF4J/Logback logs request telemetry and captures runtime exceptions with @ControllerAdvice global handlers.
-          </p>`;
-      } else if (type === 'db') {
-        detailBox.innerHTML = `
-          <div class="text-blue-400 font-bold uppercase tracking-wider">// Selected Component Details: Database & ORM Layer</div>
-          <p class="text-slate-300 font-sans leading-relaxed">
-            PostgreSQL database interaction is powered by Spring Data JPA. Configured with explicit @ManyToOne and @OneToMany annotations to link registered users with scheduled recycling collection pickups and pricing tables.
-          </p>`;
-      } else {
-        detailBox.innerHTML = `
-          <div class="text-purple-400 font-bold uppercase tracking-wider">// Selected Component Details: Containerization & Deployment</div>
-          <p class="text-slate-300 font-sans leading-relaxed">
-            Application containerized via Dockerfile. CI/CD pipeline pushes verified container builds to Docker Hub before automated release and execution on Heroku cloud hosting.
-          </p>`;
-      }
+      if (view === 'booking') document.getElementById('view-booking').classList.remove('hidden');
+      if (view === 'catalogue') document.getElementById('view-catalogue').classList.remove('hidden');
+      if (view === 'activity') document.getElementById('view-activity').classList.remove('hidden');
     }
 
-    // API Playground Switching Logic
-    const apiSamples = {
-      'user-register': {
-        title: 'POST /api/v1/users/register',
-        req: '{\n  "username": "tan_yj",\n  "email": "yj@example.com",\n  "mobileNo": "+6591234567",\n  "postalCode": "680512"\n}',
-        status: '201 CREATED',
-        res: '{\n  "status": 201,\n  "data": {\n    "userId": 101,\n    "username": "tan_yj",\n    "createdTimestamp": "2026-10-24T10:15:30Z"\n  }\n}'
-      },
-      'schedule-pickup': {
-        title: 'POST /api/v1/schedules/booking',
-        req: '{\n  "userId": 101,\n  "collectionDate": "2026-11-05",\n  "itemCategories": ["Paper", "Metals"],\n  "freeDonation": false\n}',
-        status: '200 OK',
-        res: '{\n  "status": 200,\n  "data": {\n    "bookingId": "BK-9842",\n    "pickupSlot": "10:00 AM - 12:00 PM",\n    "assignedCollector": "Lorry Team #4"\n  }\n}'
-      },
-      'catalogue-get': {
-        title: 'GET /api/v1/items/catalogue',
-        req: '// No payload required for GET query',
-        status: '200 OK',
-        res: '{\n  "status": 200,\n  "items": [\n    { "category": "Paper", "ratePerKg": "$0.20 SGD" },\n    { "category": "Aluminium Cans", "ratePerKg": "$0.80 SGD" }\n  ]\n}'
-      }
-    };
-
-    function loadApiSample(key) {
-      const sample = apiSamples[key];
-      document.getElementById('console-endpoint-title').innerText = sample.title;
-      document.getElementById('console-req-body').innerText = sample.req;
-      document.getElementById('console-status-code').innerText = sample.status;
-      document.getElementById('console-res-body').innerText = sample.res;
-    }
-
-    function runSimulatedApi() {
-      const resBody = document.getElementById('console-res-body');
-      resBody.innerText = 'Executing request to remote host...';
-      setTimeout(() => {
-        const currentTitle = document.getElementById('console-endpoint-title').innerText;
-        if (currentTitle.includes('users/register')) loadApiSample('user-register');
-        else if (currentTitle.includes('schedules/booking')) loadApiSample('schedule-pickup');
-        else loadApiSample('catalogue-get');
-      }, 400);
+    function simulateMobileSubmit() {
+      alert('Simulating AXIOS POST Request to /api/v1/schedules/booking...\n\nRequest successfully processed by Spring Boot backend!');
+      switchMobileView('activity');
     }
   </script>
 </body>
