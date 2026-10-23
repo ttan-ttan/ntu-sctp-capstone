@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Module 2: Spring Boot REST API - Garang Guni Showcase</title>
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">♻️ Garang Guni Architecture</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="module1.html">Module 1: React Web</a></li>
+        <li><a href="module2.html" class="active">Module 2: Spring Boot API</a></li>
+        <li><a href="module3.html">Module 3: React Native</a></li>
+        <li><a href="module4.html">Module 4: DevOps & CI/CD</a></li>
+        <li><a href="module5.html">Module 5: Security Architecture</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Module 2: Spring Boot REST API Deep Dive</h1>
+    <p>Explores backend architecture, JPA entity inheritance, repository optimization, and JWT request filters.</p>
+
+    <h2>Module Code Sub-Tree</h2>
+    <pre class="code-tree">
+garang-guni-backend/src/main/java/com/garangguni/
+├── config/SecurityConfig.java             [I] Stateless Security Filter Chain
+├── config/JwtAuthFilter.java              [J] Bearer Token Security Filter
+├── domain/BaseEntity.java                 [K] @MappedSuperclass Base Class
+├── domain/User.java                       [L] User Entity
+├── domain/Booking.java                    [M] Aggregate Root
+├── domain/Item.java                       [N] Child Entity
+├── domain/Image.java                      [O] Base64 Image Storage Entity
+├── dto/ItemDTO.java                       [Q] JSR-380 Transfer Payload Validation
+└── controller/ItemController.java         [U] Endpoint Controller (/items)[cite: 90]
+    </pre>
+
+    <h2>Detailed Code Implementations</h2>
+
+    <h3>1. Audit Superclass (`BaseEntity.java`) [K]</h3>
+    <p>Provides inherited entity tracking (UUID, timestamp auditing) across all database domains.</p>
+    <pre class="code-block">
+package com.garangguni.domain;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Getter
+@Setter
+@MappedSuperclass
+public abstract class BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+}
+    </pre>
+
+    <h3>2. Item Entity Definition (`Item.java`) [N][cite: 90]</h3>
+    <p>Concrete entity inheriting audit attributes from `BaseEntity` and defining database relationships[cite: 90].</p>
+    <pre class="code-block">
+package com.garangguni.domain;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.util.UUID;
+
+@Entity
+@Table(name = "items")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Item extends BaseEntity { // Inherits UUID, createdAt, updatedAt[cite: 90]
+
+    @Column(name = "item_name", nullable = false)
+    private String itemName; //[cite: 90]
+
+    @Column(name = "item_description", nullable = false)
+    private String itemDescription; //[cite: 90]
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "booking_id")
+    private Booking booking;
+}
+    </pre>
+  </main>
+</body>
+</html>
