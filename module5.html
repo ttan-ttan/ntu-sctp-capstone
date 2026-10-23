@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Module 5: Security Architecture - Garang Guni Showcase</title>
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">♻️ Garang Guni Architecture</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="module1.html">Module 1: React Web</a></li>
+        <li><a href="module2.html">Module 2: Spring Boot API</a></li>
+        <li><a href="module3.html">Module 3: React Native</a></li>
+        <li><a href="module4.html">Module 4: DevOps & CI/CD</a></li>
+        <li><a href="module5.html" class="active">Module 5: Security Architecture</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Module 5: Comprehensive Security Architecture</h1>
+    <p>Examines security controls, data protection mechanisms, encryption policies, and vulnerability mitigation.</p>
+
+    <h2>Security Layers Architecture</h2>
+    <pre class="code-tree">
+[ Client / Mobile Request ] ──(TLS 1.3 Transport Encryption)──> [ WAF Firewalls ]
+                                                                        │
+                                                           (Bearer JWT Token Auth)
+                                                                        │
+                                                                        ▼
+                                                         [ Spring Security Filter Chain ]
+                                                                        │
+                                                             (Parameterized Prepared Statements)
+                                                                        │
+                                                                        ▼
+                                                         [ PostgreSQL Encrypted Storage ]
+    </pre>
+
+    <h2>Implemented Controls Matrix</h2>
+    <div class="grid-cards">
+      <div class="card">
+        <h3>1. Authentication & Authorization</h3>
+        <p>Stateless session management using JWT signed with HMAC-SHA256. Passwords stored using BCrypt hash algorithms.</p>
+      </div>
+      <div class="card">
+        <h3>2. Injection Prevention</h3>
+        <p>Spring Data JPA ORM generates parameterized queries natively, neutralizing SQL Injection (SQLi) vectors.</p>
+      </div>
+      <div class="card">
+        <h3>3. Supply Chain Security</h3>
+        <p>Automated build-time vulnerability checks via Snyk CLI prevent vulnerable third-party dependencies from reaching staging environments.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
