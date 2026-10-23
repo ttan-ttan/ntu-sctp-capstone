@@ -2,27 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Garang Guni Scrap Recycling Platform - System Architecture</title>
-  <link rel="stylesheet" href="shared.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garang Guni Platform - System Architecture</title>
+  <link rel="stylesheet" href="./shared.css">
 </head>
 <body>
   <header>
     <nav>
-      <a href="index.html" class="logo">♻️ Garang Guni Architecture</a>
+      <a href="./index.html" class="logo">♻️ Garang Guni Architecture</a>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Overview</a></li>
-        <li><a href="module1.html">Module 1: React Web</a></li>
-        <li><a href="module2.html">Module 2: Spring Boot API</a></li>
-        <li><a href="module3.html">Module 3: React Native</a></li>
-        <li><a href="module4.html">Module 4: DevOps & CI/CD</a></li>
-        <li><a href="module5.html">Module 5: Security Architecture</a></li>
+        <li><a href="./index.html" class="active">Overview</a></li>
+        <li><a href="./module1.html">Module 1: React Web</a></li>
+        <li><a href="./module2.html">Module 2: Spring Boot API</a></li>
+        <li><a href="./module3.html">Module 3: React Native</a></li>
+        <li><a href="./module4.html">Module 4: DevOps &amp; CI/CD</a></li>
+        <li><a href="./module5.html">Module 5: Security Architecture</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="container">
-    <h1>Architecture-First Code Map & Directory</h1>
-    <p>This master directory maps every core technical concept, entity inheritance structure, state flow, and decorator pattern directly to its exact location in the codebase repository.</p>
+    <h1>Architecture-First Code Map &amp; Directory</h1>
+    <p>This master overview maps every core technical concept, entity inheritance structure, state flow, and decorator pattern directly to file paths in the project repository.</p>
 
     <h2>Project Repository Code Tree Map</h2>
     <pre class="code-tree">
@@ -30,14 +31,14 @@ garang-guni-platform/
 │
 ├── 🌐 garang-guni-frontend/ (Module 1: React Web SPA)
 │   ├── src/
-│   │   ├── context/AuthContext.jsx                 [A] Global Auth Context & Token Persistence
-│   │   ├── services/api.js                          [B] Axios Central Interceptor & Token Injection
-│   │   ├── services/dropoffService.js               [C] Parallel Axios & API Key Obfuscation
+│   │   ├── context/AuthContext.jsx                 [A] Global Auth Context &amp; Token Persistence
+│   │   ├── services/api.js                          [B] Axios Central Interceptor &amp; Token Injection
+│   │   ├── services/dropoffService.js               [C] Parallel Axios &amp; API Key Obfuscation
 │   │   ├── components/ProtectedRoute.jsx              [D] Higher-Order Auth Guard Route
 │   │   ├── components/DynamicForm.jsx                 [E] Multi-Step State Flow Pipeline
 │   │   ├── components/MapContainer.jsx                [F] Dynamic Marker Clustering
 │   │   ├── views/SchedulePickup.jsx                   [G] Responsive Layout Binding
-│   │   └── views/ProfileSettings.jsx                  [H] Canvas Image Cropping & Base64 Converter
+│   │   └── views/ProfileSettings.jsx                  [H] Canvas Image Cropping &amp; Base64 Converter
 │
 ├── ⚙️ garang-guni-backend/ (Module 2: Spring Boot REST API)
 │   ├── src/main/java/com/garangguni/
@@ -58,53 +59,53 @@ garang-guni-platform/
 │
 ├── 📱 garang-guni-mobile/ (Module 3: React Native Expo)
 │   ├── src/
-│   │   ├── navigation/RootNavigator.jsx           [W] Drawer & Dynamic Tab Navigator
+│   │   ├── navigation/RootNavigator.jsx           [W] Drawer &amp; Dynamic Tab Navigator
 │   │   ├── utils/responsive.js                   [X] Scalable Dimension Engine (wp/hp)
 │   │   ├── components/CustomCamera.jsx            [Y] Expo Native Camera Hardware Bridge
 │   │   ├── components/ImageCropper.jsx            [Z] Aspect-Ratio Processing Engine
 │   │   └── screens/PickupScreen.jsx                [AA] Formik + Yup Native Schema Validation
 │
-├── 🚀 .github/workflows/ (Module 4: DevOps & Pipeline)
+├── 🚀 .github/workflows/ (Module 4: DevOps &amp; Pipeline)
 │   ├── ci-cd-pipeline.yml                      [AB] Multi-Stage GitHub Actions Matrix
 │   ├── docker/Dockerfile                       [AC] Multi-Stage OCI Image Build Matrix
 │   └── tests/jmeter_load_test.jmx                [AD] Headless JMeter Performance Script
 │
 └── 🛡️ security/ (Module 5: Security Architecture)
     ├── OWASP_Mitigation_Matrix.md              [AE] Defense-in-Depth Implementation Rules
-    └── Static_Analysis_Configs/                [AF] SpotBugs & Snyk Rulesets
+    └── Static_Analysis_Configs/                [AF] SpotBugs &amp; Snyk Rulesets
     </pre>
 
-    <h2>System Module Breakdown</h2>
+    <h2>Select Chapter Book</h2>
     <div class="grid-cards">
       <div class="card">
         <span class="badge">Module 1</span>
         <h3>React Web Frontend</h3>
         <p>Single Page Application built with React, Axios, and Context API. Implements state persistence, protected routing, and parallel data fetching.</p>
-        <a href="module1.html" style="color: var(--accent-cyan);">Explore Module 1 &rarr;</a>
+
       </div>
       <div class="card">
         <span class="badge">Module 2</span>
         <h3>Spring Boot REST API</h3>
         <p>Java Spring Boot backend using JPA/Hibernate for entity inheritance, JWT filter validation, and PostgreSQL integration.</p>
-        <a href="module2.html" style="color: var(--accent-cyan);">Explore Module 2 &rarr;</a>
+
       </div>
       <div class="card">
         <span class="badge">Module 3</span>
         <h3>React Native Mobile</h3>
         <p>Cross-platform mobile application featuring custom viewport calculation engines (wp/hp), camera integration, and Formik validation.</p>
-        <a href="module3.html" style="color: var(--accent-cyan);">Explore Module 3 &rarr;</a>
+
       </div>
       <div class="card">
         <span class="badge">Module 4</span>
-        <h3>DevOps & Automated Pipeline</h3>
-        <p>CI/CD automated testing and build pipeline featuring Snyk security auditing, SpotBugs static analysis, Docker builds, and JMeter load testing.</p>
-        <a href="module4.html" style="color: var(--accent-cyan);">Explore Module 4 &rarr;</a>
+        <h3>DevOps &amp; Automated Pipeline</h3>
+        <p>CI/CD pipeline featuring Snyk security auditing, SpotBugs static analysis, Docker builds, and JMeter load testing.</p>
+
       </div>
       <div class="card">
         <span class="badge">Module 5</span>
         <h3>Security Architecture</h3>
-        <p>Defense-in-depth security implementation including JWT authentication, SQL injection neutralization, TLS 1.3 encryption, and OWASP mitigation controls.</p>
-        <a href="module5.html" style="color: var(--accent-cyan);">Explore Module 5 &rarr;</a>
+        <p>Defense-in-depth implementation including JWT authentication, SQL injection neutralization, TLS 1.3 encryption, and OWASP controls.</p>
+
       </div>
     </div>
   </main>
