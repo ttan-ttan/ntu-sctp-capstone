@@ -1,314 +1,112 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Garung Guni — Full-Stack & DevOps Capstone Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: { 50: '#ecfdf5', 400: '#34d399', 500: '#10b981', 600: '#059669', 950: '#022c22' }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    .bg-grid { background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 24px 24px; }
-    .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-    .mobile-mockup { width: 300px; height: 600px; border: 10px solid #1e293b; border-radius: 36px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
-  </style>
+  <title>Garang Guni Scrap Recycling Platform - System Architecture</title>
+  <link rel="stylesheet" href="shared.css">
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen bg-grid selection:bg-brand-500 selection:text-slate-950">
-
-  <!-- Navigation Bar -->
-  <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="h-8 w-8 rounded-lg bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-500 font-extrabold text-xs">
-          NTU
-        </div>
-        <span class="font-bold text-sm text-slate-200">Garung Guni <span class="text-xs text-slate-400 font-normal">4-Module Capstone</span></span>
-      </div>
-
-      <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-slate-300">
-        <a href="#modules" class="hover:text-brand-400 transition">4-Module Roadmap</a>
-        <a href="#mobile-demo" class="hover:text-brand-400 transition">Mobile App UI</a>
-        <a href="#architecture" class="hover:text-brand-400 transition">Backend Architecture</a>
-        <a href="#pipeline" class="hover:text-brand-400 transition">CI/CD Pipeline</a>
-      </nav>
-
-      <div class="flex items-center gap-2">
-        <a href="https://github.com/ntu-se7-grp3" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 transition flex items-center gap-2">
-          <i class="fab fa-github text-emerald-400"></i> GitHub
-        </a>
-        <a href="https://drive.google.com/drive/folders/1XNdtp7GRn4C4quxGFL1nA5du99KHxT8E" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 border border-brand-500/30 transition flex items-center gap-2">
-          <i class="fab fa-google-drive text-amber-400"></i> Drive
-        </a>
-      </div>
-    </div>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">♻️ Garang Guni Architecture</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Overview</a></li>
+        <li><a href="module1.html">Module 1: React Web</a></li>
+        <li><a href="module2.html">Module 2: Spring Boot API</a></li>
+        <li><a href="module3.html">Module 3: React Native</a></li>
+        <li><a href="module4.html">Module 4: DevOps & CI/CD</a></li>
+        <li><a href="module5.html">Module 5: Security Architecture</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-12 space-y-20">
+  <main class="container">
+    <h1>Architecture-First Code Map & Directory</h1>
+    <p>This master directory maps every core technical concept, entity inheritance structure, state flow, and decorator pattern directly to its exact location in the codebase repository.</p>
 
-    <!-- Hero Header -->
-    <section class="space-y-4 max-w-4xl">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20">
-        <i class="fas fa-graduation-cap"></i> NTU Software Engineering Capstone Showcase
+    <h2>Project Repository Code Tree Map</h2>
+    <pre class="code-tree">
+garang-guni-platform/
+│
+├── 🌐 garang-guni-frontend/ (Module 1: React Web SPA)
+│   ├── src/
+│   │   ├── context/AuthContext.jsx                 [A] Global Auth Context & Token Persistence
+│   │   ├── services/api.js                          [B] Axios Central Interceptor & Token Injection
+│   │   ├── services/dropoffService.js               [C] Parallel Axios & API Key Obfuscation
+│   │   ├── components/ProtectedRoute.jsx              [D] Higher-Order Auth Guard Route
+│   │   ├── components/DynamicForm.jsx                 [E] Multi-Step State Flow Pipeline
+│   │   ├── components/MapContainer.jsx                [F] Dynamic Marker Clustering
+│   │   ├── views/SchedulePickup.jsx                   [G] Responsive Layout Binding
+│   │   └── views/ProfileSettings.jsx                  [H] Canvas Image Cropping & Base64 Converter
+│
+├── ⚙️ garang-guni-backend/ (Module 2: Spring Boot REST API)
+│   ├── src/main/java/com/garangguni/
+│   │   ├── config/SecurityConfig.java             [I] Stateless Security Filter Chain
+│   │   ├── config/JwtAuthFilter.java              [J] Custom Bearer Token Validation
+│   │   ├── domain/BaseEntity.java                 [K] @MappedSuperclass Audit Inheritance
+│   │   ├── domain/User.java                       [L] Concrete User Entity (@Entity)
+│   │   ├── domain/Booking.java                    [M] Aggregate Root (@OneToMany -> Items)
+│   │   ├── domain/Item.java                       [N] Child Entity (@ManyToOne -> Booking)
+│   │   ├── domain/Image.java                      [O] Base64 Storage Entity (@ManyToOne -> Item)
+│   │   ├── dto/BookingRequestDTO.java             [P] Unidirectional Transfer Payload
+│   │   ├── dto/ItemDTO.java                       [Q] JSR-380 Validation Constraints
+│   │   ├── repository/UserRepository.java         [R] Custom Derived JPA Queries
+│   │   ├── repository/BookingRepository.java      [S] JPQL Join Fetching for N+1 Optimization
+│   │   ├── service/BookingService.java            [T] @Transactional Business Orchestration
+│   │   └── controller/ItemController.java         [U] REST Endpoint Handler (/items)
+│   └── src/main/resources/application.yml         [V] Environment Variable Injector (${JWT_SECRET_KEY})
+│
+├── 📱 garang-guni-mobile/ (Module 3: React Native Expo)
+│   ├── src/
+│   │   ├── navigation/RootNavigator.jsx           [W] Drawer & Dynamic Tab Navigator
+│   │   ├── utils/responsive.js                   [X] Scalable Dimension Engine (wp/hp)
+│   │   ├── components/CustomCamera.jsx            [Y] Expo Native Camera Hardware Bridge
+│   │   ├── components/ImageCropper.jsx            [Z] Aspect-Ratio Processing Engine
+│   │   └── screens/PickupScreen.jsx                [AA] Formik + Yup Native Schema Validation
+│
+├── 🚀 .github/workflows/ (Module 4: DevOps & Pipeline)
+│   ├── ci-cd-pipeline.yml                      [AB] Multi-Stage GitHub Actions Matrix
+│   ├── docker/Dockerfile                       [AC] Multi-Stage OCI Image Build Matrix
+│   └── tests/jmeter_load_test.jmx                [AD] Headless JMeter Performance Script
+│
+└── 🛡️ security/ (Module 5: Security Architecture)
+    ├── OWASP_Mitigation_Matrix.md              [AE] Defense-in-Depth Implementation Rules
+    └── Static_Analysis_Configs/                [AF] SpotBugs & Snyk Rulesets
+    </pre>
+
+    <h2>System Module Breakdown</h2>
+    <div class="grid-cards">
+      <div class="card">
+        <span class="badge">Module 1</span>
+        <h3>React Web Frontend</h3>
+        <p>Single Page Application built with React, Axios, and Context API. Implements state persistence, protected routing, and parallel data fetching.</p>
+        <a href="module1.html" style="color: var(--accent-cyan);">Explore Module 1 &rarr;</a>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-        Garung Guni: End-to-End Full-Stack & DevOps Platform
-      </h1>
-      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        Demonstrating the full 4-module software engineering progression: from initial Draw.io planning and React Mobile Frontend, to Spring Boot REST APIs, PostgreSQL persistence, and automated CircleCI/Snyk pipelines.
-      </p>
-    </section>
-
-    <!-- Section 1: The 4-Module Capstone Roadmap -->
-    <section id="modules" class="space-y-6">
-      <div class="border-b border-slate-800 pb-4">
-        <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-          <i class="fas fa-layer-group text-brand-400"></i> 4-Module Technical Progression
-        </h2>
-        <p class="text-xs text-slate-400 mt-1">Overview of skills applied across each phase of the program</p>
+      <div class="card">
+        <span class="badge">Module 2</span>
+        <h3>Spring Boot REST API</h3>
+        <p>Java Spring Boot backend using JPA/Hibernate for entity inheritance, JWT filter validation, and PostgreSQL integration.</p>
+        <a href="module2.html" style="color: var(--accent-cyan);">Explore Module 2 &rarr;</a>
       </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <!-- Module 1 -->
-        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-3">
-          <div class="text-xs font-mono font-bold text-amber-400">MODULE 01</div>
-          <h3 class="font-bold text-white text-sm">System Planning & Agile</h3>
-          <ul class="text-xs text-slate-300 space-y-1.5 leading-relaxed">
-            <li>• Problem statements & User Stories</li>
-            <li>• Draw.io System ERD & Flows</li>
-            <li>• Alternate-Day Scrum Standups</li>
-          </ul>
-        </div>
-
-        <!-- Module 2 -->
-        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-3">
-          <div class="text-xs font-mono font-bold text-blue-400">MODULE 02</div>
-          <h3 class="font-bold text-white text-sm">React Mobile Frontend</h3>
-          <ul class="text-xs text-slate-300 space-y-1.5 leading-relaxed">
-            <li>• React / React Native UI & State</li>
-            <li>• AXIOS API Service Integration</li>
-            <li>• Leaflet Station Map Filters</li>
-          </ul>
-        </div>
-
-        <!-- Module 3 -->
-        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-3">
-          <div class="text-xs font-mono font-bold text-brand-400">MODULE 03</div>
-          <h3 class="font-bold text-white text-sm">Spring Boot REST API</h3>
-          <ul class="text-xs text-slate-300 space-y-1.5 leading-relaxed">
-            <li>• Java Spring Boot Microservices</li>
-            <li>• PostgreSQL JPA Relationships</li>
-            <li>• SLF4J Logging & Exception Advice</li>
-          </ul>
-        </div>
-
-        <!-- Module 4 -->
-        <div class="glass-panel p-5 rounded-xl border border-slate-800 space-y-3">
-          <div class="text-xs font-mono font-bold text-purple-400">MODULE 04</div>
-          <h3 class="font-bold text-white text-sm">DevOps & Security</h3>
-          <ul class="text-xs text-slate-300 space-y-1.5 leading-relaxed">
-            <li>• CircleCI Automated Pipelines</li>
-            <li>• Snyk Container Vulnerability Scan</li>
-            <li>• Docker & Heroku Cloud Hosting</li>
-          </ul>
-        </div>
+      <div class="card">
+        <span class="badge">Module 3</span>
+        <h3>React Native Mobile</h3>
+        <p>Cross-platform mobile application featuring custom viewport calculation engines (wp/hp), camera integration, and Formik validation.</p>
+        <a href="module3.html" style="color: var(--accent-cyan);">Explore Module 3 &rarr;</a>
       </div>
-    </section>
-
-    <!-- Section 2: Interactive Mobile App UI Demo (Module 2 Focus) -->
-    <section id="mobile-demo" class="space-y-6">
-      <div class="border-b border-slate-800 pb-4">
-        <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-          <i class="fas fa-mobile-screen-button text-blue-400"></i> Interactive Frontend Demo (React Mobile Client)
-        </h2>
-        <p class="text-xs text-slate-400 mt-1">Click mobile navigation buttons below to test live screen views and interactions</p>
+      <div class="card">
+        <span class="badge">Module 4</span>
+        <h3>DevOps & Automated Pipeline</h3>
+        <p>CI/CD automated testing and build pipeline featuring Snyk security auditing, SpotBugs static analysis, Docker builds, and JMeter load testing.</p>
+        <a href="module4.html" style="color: var(--accent-cyan);">Explore Module 4 &rarr;</a>
       </div>
-
-      <div class="grid lg:grid-cols-12 gap-8 items-center">
-        <!-- Interactive Smartphone Frame -->
-        <div class="lg:col-span-5 flex justify-center">
-          <div class="mobile-mockup bg-slate-900 overflow-hidden flex flex-col relative text-slate-100">
-            <!-- Mobile Header Notch -->
-            <div class="bg-slate-950 px-6 py-3 flex justify-between items-center border-b border-slate-800">
-              <span class="text-[10px] font-bold text-slate-400">Garung Guni App</span>
-              <div class="flex gap-1.5">
-                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                <span class="h-1.5 w-1.5 rounded-full bg-slate-600"></span>
-              </div>
-            </div>
-
-            <!-- Mobile Viewport Canvas -->
-            <div id="mobile-viewport" class="flex-1 p-4 overflow-y-auto space-y-4 text-xs">
-              <!-- View 1: Booking Request Screen (Default) -->
-              <div id="view-booking" class="space-y-3">
-                <div class="bg-slate-800 p-3 rounded-lg space-y-2">
-                  <div class="font-bold text-white text-xs">Doorstep Collection Request</div>
-                  <p class="text-[10px] text-slate-400">Schedule a collector to visit your unit</p>
-                </div>
-                
-                <div class="space-y-1.5">
-                  <label class="text-[10px] text-slate-400 font-semibold">Select Collection Date</label>
-                  <input type="date" value="2026-11-05" class="w-full bg-slate-950 border border-slate-800 rounded p-2 text-xs text-slate-200">
-                </div>
-
-                <div class="space-y-1.5">
-                  <label class="text-[10px] text-slate-400 font-semibold">Item Categories</label>
-                  <div class="grid grid-cols-2 gap-2 text-[10px]">
-                    <div class="bg-emerald-500/20 border border-emerald-500/40 p-2 rounded text-emerald-300 font-bold flex justify-between">
-                      <span>Paper / Cardboard</span> <i class="fas fa-check"></i>
-                    </div>
-                    <div class="bg-slate-950 border border-slate-800 p-2 rounded text-slate-400">
-                      Metals / Cans
-                    </div>
-                  </div>
-                </div>
-
-                <button onclick="simulateMobileSubmit()" class="w-full py-2.5 bg-brand-500 font-bold text-slate-950 rounded-lg text-xs hover:bg-brand-400 transition mt-2">
-                  Submit Pickup Request
-                </button>
-              </div>
-
-              <!-- View 2: Items & Cash Rates Screen -->
-              <div id="view-catalogue" class="hidden space-y-3">
-                <div class="font-bold text-white text-xs">Recyclables Catalogue & Rates</div>
-                <div class="space-y-2">
-                  <div class="p-2.5 bg-slate-800 rounded flex justify-between items-center">
-                    <div>
-                      <div class="font-bold text-white">Old Newspapers & Books</div>
-                      <div class="text-[9px] text-slate-400">Clean & bound in stacks</div>
-                    </div>
-                    <span class="text-brand-400 font-mono font-bold">$0.25 / kg</span>
-                  </div>
-                  <div class="p-2.5 bg-slate-800 rounded flex justify-between items-center">
-                    <div>
-                      <div class="font-bold text-white">Aluminium Cans</div>
-                      <div class="text-[9px] text-slate-400">Rinsed & crushed</div>
-                    </div>
-                    <span class="text-brand-400 font-mono font-bold">$0.85 / kg</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- View 3: Activity Tracker -->
-              <div id="view-activity" class="hidden space-y-3">
-                <div class="font-bold text-white text-xs">Your Pickup Requests</div>
-                <div class="p-3 bg-slate-800 rounded-lg border border-emerald-500/30 space-y-1">
-                  <div class="flex justify-between text-[10px]">
-                    <span class="font-bold text-emerald-400">CONFIRMED</span>
-                    <span class="text-slate-400">ID: #BK-9842</span>
-                  </div>
-                  <div class="text-slate-200 font-bold">5 Nov 2026 (10:00 AM)</div>
-                  <div class="text-[10px] text-slate-400">Status: Collector assigned</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Mobile Bottom Tab Navigation -->
-            <div class="bg-slate-950 border-t border-slate-800 p-2 grid grid-cols-3 text-center text-[10px]">
-              <button onclick="switchMobileView('booking')" class="text-brand-400 font-bold flex flex-col items-center">
-                <i class="fas fa-calendar-plus text-xs"></i> Schedule
-              </button>
-              <button onclick="switchMobileView('catalogue')" class="text-slate-400 hover:text-white flex flex-col items-center">
-                <i class="fas fa-list text-xs"></i> Rates
-              </button>
-              <button onclick="switchMobileView('activity')" class="text-slate-400 hover:text-white flex flex-col items-center">
-                <i class="fas fa-clock-rotate-left text-xs"></i> Activity
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Technical Explanation Panel -->
-        <div class="lg:col-span-7 space-y-4">
-          <div class="glass-panel p-6 rounded-xl border border-slate-800 space-y-3">
-            <div class="text-xs font-mono text-blue-400 font-bold">// React Client Features & Architecture</div>
-            <h3 class="text-lg font-bold text-white">Frontend Technical Implementation</h3>
-            <ul class="text-xs text-slate-300 space-y-2 leading-relaxed">
-              <li class="flex items-start gap-2">
-                <i class="fas fa-code text-brand-400 mt-0.5"></i>
-                <span><strong>AXIOS & REST Integration:</strong> Fetches pricing catalogues and submits collection payloads directly to Spring Boot backend endpoints[cite: 2, 21].</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fas fa-code text-brand-400 mt-0.5"></i>
-                <span><strong>React State & Hooks:</strong> Uses <code class="text-brand-300">useState</code> and <code class="text-brand-300">useContext</code> to track user pickup schedules, cart selections, and auth sessions[cite: 21].</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fas fa-code text-brand-400 mt-0.5"></i>
-                <span><strong>Mobile Responsive UI:</strong> Custom CSS layouts built to render cleanly across both mobile smartphones and desktop interview displays[cite: 21].</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="card">
+        <span class="badge">Module 5</span>
+        <h3>Security Architecture</h3>
+        <p>Defense-in-depth security implementation including JWT authentication, SQL injection neutralization, TLS 1.3 encryption, and OWASP mitigation controls.</p>
+        <a href="module5.html" style="color: var(--accent-cyan);">Explore Module 5 &rarr;</a>
       </div>
-    </section>
-
-    <!-- Section 3: End-to-End Execution Flow (Frontend -> API -> DB -> DevOps) -->
-    <section id="architecture" class="space-y-6">
-      <div class="border-b border-slate-800 pb-4">
-        <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-          <i class="fas fa-diagram-project text-brand-400"></i> Full Stack Request Execution Lifecycle
-        </h2>
-        <p class="text-xs text-slate-400 mt-1">How a single user tap on the mobile app executes across all 4 system layers</p>
-      </div>
-
-      <div class="grid md:grid-cols-4 gap-4 text-xs">
-        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
-          <div class="text-blue-400 font-mono font-bold">STEP 1: REACT APP</div>
-          <div class="font-bold text-white">AXIOS Request Payload</div>
-          <p class="text-slate-400">React client posts JSON booking data to Spring Boot backend[cite: 2, 21].</p>
-        </div>
-
-        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
-          <div class="text-brand-400 font-mono font-bold">STEP 2: SPRING BOOT</div>
-          <div class="font-bold text-white">REST Controller & Validation</div>
-          <p class="text-slate-400">Validates inputs and logs telemetry using SLF4J / Logback[cite: 2, 3].</p>
-        </div>
-
-        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
-          <div class="text-amber-400 font-mono font-bold">STEP 3: POSTGRESQL</div>
-          <div class="font-bold text-white">JPA Entity Persistence</div>
-          <p class="text-slate-400">Persists records into PostgreSQL via `@ManyToOne` user relationships[cite: 2].</p>
-        </div>
-
-        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
-          <div class="text-purple-400 font-mono font-bold">STEP 4: DEVOPS</div>
-          <div class="font-bold text-white">CircleCI & Docker</div>
-          <p class="text-slate-400">CircleCI runs JUnit tests, Snyk scans, and deploys Docker images to Heroku[cite: 41, 43, 44, 46].</p>
-        </div>
-      </div>
-    </section>
-
+    </div>
   </main>
-
-  <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
-    Garung Guni Capstone Portfolio — Nanyang Technological University SCTP
-  </footer>
-
-  <!-- Interactive JavaScript Logic -->
-  <script>
-    function switchMobileView(view) {
-      document.getElementById('view-booking').classList.add('hidden');
-      document.getElementById('view-catalogue').classList.add('hidden');
-      document.getElementById('view-activity').classList.add('hidden');
-
-      if (view === 'booking') document.getElementById('view-booking').classList.remove('hidden');
-      if (view === 'catalogue') document.getElementById('view-catalogue').classList.remove('hidden');
-      if (view === 'activity') document.getElementById('view-activity').classList.remove('hidden');
-    }
-
-    function simulateMobileSubmit() {
-      alert('Simulating AXIOS POST Request to /api/v1/schedules/booking...\n\nRequest successfully processed by Spring Boot backend!');
-      switchMobileView('activity');
-    }
-  </script>
 </body>
 </html>
