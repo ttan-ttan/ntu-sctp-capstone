@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Module 1: React Web Frontend - Garang Guni Showcase</title>
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">♻️ Garang Guni Architecture</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="module1.html" class="active">Module 1: React Web</a></li>
+        <li><a href="module2.html">Module 2: Spring Boot API</a></li>
+        <li><a href="module3.html">Module 3: React Native</a></li>
+        <li><a href="module4.html">Module 4: DevOps & CI/CD</a></li>
+        <li><a href="module5.html">Module 5: Security Architecture</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Module 1: React Web Frontend Deep Dive</h1>
+    <p>This module focuses on the Single Page Application architecture built using React, Axios, and Context API.</p>
+
+    <h2>Module Code Sub-Tree</h2>
+    <pre class="code-tree">
+garang-guni-frontend/src/
+├── context/AuthContext.jsx                 [A] Global Session Context
+├── services/api.js                          [B] Axios Bearer Token Interceptor
+├── services/dropoffService.js               [C] Parallel Axios Queries
+├── components/ProtectedRoute.jsx              [D] Higher-Order Auth Route Guard
+├── components/DynamicForm.jsx                 [E] Multi-Step State Flow Pipeline
+├── components/MapContainer.jsx                [F] Dynamic Marker Clustering
+├── views/SchedulePickup.jsx                   [G] Responsive Layout Binding
+└── views/ProfileSettings.jsx                  [H] Canvas Image Cropper & Encoder
+    </pre>
+
+    <h2>Detailed Code Implementations</h2>
+
+    <h3>1. Global Authentication Context (`AuthContext.jsx`) [A]</h3>
+    <p>Provides session state globally without prop-drilling, syncing state directly with local storage.</p>
+    <pre class="code-block">
+import React, { createContext, useState, useEffect } from 'react';
+
+export const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem('jwt_token'));
+
+  useEffect(() => {
+    if (token) {
+      localStorage.setItem('jwt_token', token);
+    } else {
+      localStorage.removeItem('jwt_token');
+    }
+  }, [token]);
+
+  const login = (userData, authToken) => {
+    setUser(userData);
+    setToken(authToken);
+  };
+
+  const logout = () => {
+    setUser(null);
+    setToken(null);
+  };
+
+  return (
+    &lt;AuthContext.Provider value={{ user, token, login, logout }}&gt;
+      {children}
+    &lt;/AuthContext.Provider&gt;
+  );
+};
+    </pre>
+
+    <h3>2. Axios Interceptor (`api.js`) [B]</h3>
+    <p>Centralized network wrapper injecting `Authorization: Bearer &lt;token&gt;` headers into outbound REST requests.</p>
+    <pre class="code-block">
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080/api',
+});
+
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('jwt_token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+export default api;
+    </pre>
+  </main>
+</body>
+</html>
