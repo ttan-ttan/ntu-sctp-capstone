@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Module 3: React Native Mobile - Garang Guni Showcase</title>
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">♻️ Garang Guni Architecture</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="module1.html">Module 1: React Web</a></li>
+        <li><a href="module2.html">Module 2: Spring Boot API</a></li>
+        <li><a href="module3.html" class="active">Module 3: React Native</a></li>
+        <li><a href="module4.html">Module 4: DevOps & CI/CD</a></li>
+        <li><a href="module5.html">Module 5: Security Architecture</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Module 3: React Native Mobile Application</h1>
+    <p>Cross-platform mobile application design focused on device hardware integration and responsive screen layouts.</p>
+
+    <h2>Module Code Sub-Tree</h2>
+    <pre class="code-tree">
+garang-guni-mobile/src/
+├── navigation/RootNavigator.jsx           [W] Navigation Architecture Stack
+├── utils/responsive.js                   [X] Scalable Aspect Ratio Engine (wp/hp)
+├── components/CustomCamera.jsx            [Y] Expo Native Camera Engine
+├── components/ImageCropper.jsx            [Z] Aspect Ratio Native Engine
+└── screens/PickupScreen.jsx                [AA] Formik Dynamic Form Schema
+    </pre>
+
+    <h2>Detailed Code Implementation</h2>
+
+    <h3>1. Responsive Layout Utility (`responsive.js`) [X]</h3>
+    <p>Custom utility converting percentage dimensions into screen pixels (`dp`) across device viewports.</p>
+    <pre class="code-block">
+import { Dimensions, PixelRatio } from 'react-native';
+
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
+
+export const wp = (widthPercent) => {
+  const elemWidth = typeof widthPercent === "number" ? widthPercent : parseFloat(widthPercent);
+  return PixelRatio.roundToNearestPixel((SCREEN_WIDTH * elemWidth) / 100);
+};
+
+export const hp = (heightPercent) => {
+  const elemHeight = typeof heightPercent === "number" ? heightPercent : parseFloat(heightPercent);
+  return PixelRatio.roundToNearestPixel((SCREEN_HEIGHT * elemHeight) / 100);
+};
+    </pre>
+  </main>
+</body>
+</html>
